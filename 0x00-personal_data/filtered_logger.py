@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Filter_datum function that returns an obfuscated log message"""
+"""Filter_datum function that returns an obfuscated log message
+Args:
+        feilds (dict): A list of strings to obfuscate
+        redaction (str): The string to replace the sensitive data with
+        message (str): String representing the log line
+        separator (str): The separator between fields in the log line
+    The function should a regex to repkace occurences of certain field values
+    with the redaction value."""
 import re
 import logging
 import csv
