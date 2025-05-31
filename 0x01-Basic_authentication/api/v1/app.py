@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
 Route module for the API
+This module initializes the Flask application, sets up CORS,
+and configures authentication based on the environment variable AUTH_TYPE.
 """
 from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request, g
-from flask_cors import (CORS, cross_origin)
+from flask_cors import CORS, cross_origin
 import os
 
 
