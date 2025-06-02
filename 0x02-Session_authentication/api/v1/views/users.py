@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-""" Module of Users views
-Authentcates users and manages user data
+"""
+Module of Users views
+Handles operations related to user management:
+- Viewing all users
+- Viewing a specific user
+- Creating a user
+- Updating user data
+- Deleting a user
 """
 from api.v1.views import app_views
 from flask import abort, jsonify, request
@@ -9,9 +15,18 @@ from models.user import User
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def view_all_users(user_id: str = None) -> str:
-    """ GET /api/v1/users
-    Return:
-      - list of all User objects JSON represented
+    """
+    Retrieves a list of all User objects in JSON format.
+
+    Parameters:
+        user_id (str, optional): If set to 'me', returns the current authenticated user.
+
+    Returns:
+        JSON response:
+            - 401 if 'me' is requested without authentication
+            - 404 if no user_id is given
+            - JSON list of all users (if user_id is not 'me')
+            - JSON representation of current user (if user_id is 'me')
     """
     if user_id is None:
         abort(404)
