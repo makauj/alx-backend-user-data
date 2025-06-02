@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 """ DocDocDocDocDocDoc
 """
+from flask import Blueprint
+from models.user import *
+from api.v1.views.auth import *
 from api.v1.views.index import *
 from api.v1.views.users import *
-from flask import Blueprint
+from api.v1.auth.session_auth import *
 
 app_views = Blueprint("app_views", __name__, url_prefix="/api/v1")
 
