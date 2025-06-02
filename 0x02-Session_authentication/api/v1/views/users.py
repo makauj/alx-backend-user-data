@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """ Module of Users views
+Authentcates users and manages user data
 """
 from api.v1.views import app_views
 from flask import abort, jsonify, request
