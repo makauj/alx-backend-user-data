@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Route module for the API
+"""Route module for the API
 This module initializes the Flask application, sets up CORS,
 and configures authentication based on the environment variable AUTH_TYPE.
 """
