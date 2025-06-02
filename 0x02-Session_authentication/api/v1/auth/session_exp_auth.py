@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Session expiration handler."""
+"""Session expiration handler.
+"""
 import time
 import logging
 from api.v1.auth.session_auth import SessionAuth

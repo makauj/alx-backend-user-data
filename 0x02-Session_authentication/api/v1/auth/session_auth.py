@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Session Authentication Middleware"""
+"""Session Authentication Middleware
+"""
 from api.v1.auth import Auth
 from models.user import User
 from uuid import uuid4

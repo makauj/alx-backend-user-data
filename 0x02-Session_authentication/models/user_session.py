@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""User session management module."""
+"""User session management module.
+"""
 from models.base import Base
 import uuid
 import datetime

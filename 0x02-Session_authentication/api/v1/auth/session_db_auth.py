@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Session database management Authentication."""
+"""Session database management Authentication.
+"""
 import logging
 from datetime import datetime
 from api.v1.auth.session_exp_auth import load_from_file

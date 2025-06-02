@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""manage API authentication"""
+"""manage API authentication
+"""
 from flask import request
 from typing import List, TypeVar
 from os import getenv
