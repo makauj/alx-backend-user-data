@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# type: ignore
 """ Module of Users views
 """
 from api.v1.views import app_views
@@ -7,13 +8,23 @@ from models.user import User
 
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
-def view_all_users() -> str:
+def view_all_users(user_id: str = None) -> str:
     """ GET /api/v1/users
     Return:
       - list of all User objects JSON represented
     """
+    if user_id is None:
+        abort(404)
+
+    if user_id == "me" and request.authorization is None:
+        abort(401)
+
+    if user_id == "me" and request.current_user is not None:
+        user = request.current_user
+        return jsonify(user.to_json())
+
     all_users = [user.to_json() for user in User.all()]
-    return jsonify(all_users)
+    return jsonify(all_users), 200
 
 
 @app_views.route('/users/<user_id>', methods=['GET'], strict_slashes=False)
@@ -30,7 +41,7 @@ def view_one_user(user_id: str = None) -> str:
     user = User.get(user_id)
     if user is None:
         abort(404)
-    return jsonify(user.to_json())
+    return jsonify(user.to_json()), 200
 
 
 @app_views.route('/users/<user_id>', methods=['DELETE'], strict_slashes=False)

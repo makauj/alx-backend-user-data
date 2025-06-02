@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
+# type: ignore
 """manage API authentication"""
 from flask import request
+from typing import List, TypeVar
+from os import getenv
 
 
 class Auth:
@@ -40,3 +43,12 @@ class Auth:
     def current_user(self, request=None) -> None:
         """Return the current user"""
         return None
+
+    def session_cookie(self, request=None) -> str:
+        """Return the session cookie from the request"""
+        if request is None:
+            return None
+        SESSION_NAME = getenv("SESSION_NAME")
+        if SESSION_NAME is None:
+            return None
+        return request.cookies.get(SESSION_NAME)
