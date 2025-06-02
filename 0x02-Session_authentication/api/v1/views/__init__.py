@@ -2,7 +2,7 @@
 """ DocDocDocDocDocDoc
 """
 from flask import Blueprint
-from api.v1.views import app_views
+from api.v1.views.app import *
 from models.user import *
 from api.v1.views.auth import *
 from api.v1.views.index import *
