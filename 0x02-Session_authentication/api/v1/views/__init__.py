@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """ DocDocDocDocDocDoc
 """
 from api.v1.views.index import *

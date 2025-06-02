@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """Session Authentication Middleware"""
 from api.v1.auth import Auth
 from models.user import User

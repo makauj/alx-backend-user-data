@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# type: ignore
 """Session database management Authentication."""
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime
+from api.v1.auth.session_exp_auth import load_from_file
 from models.user_session import UserSession
 from api.v1.auth.session_exp_auth import SessionExpAuth
 
@@ -29,16 +29,15 @@ class SessionDBAuth(SessionExpAuth):
         """Retrieve user ID for a given session ID."""
         if session_id is None:
             return None
-        try:
-            session = UserSession.get(UserSession.session_id == session_id)
-            if session and session.created_at + timedelta(seconds=self.session_duration) > datetime.now():
-                return session.user_id
-        except UserSession.DoesNotExist:
+        UserSession = load_from_file()
+        user_session = UserSession.search({'session_id': session_id})
+        if not user_session:
             return None
-        except Exception as e:
-            logging.error(f"Error retrieving user ID for session: {e}")
+        user_session = user_session[0]
+        if self.is_session_expired(user_session.created_at):
+            self.destroy_session(session_id)
             return None
-        return None
+        return user_session.user_id
 
     def destroy_session(self, session_id=None):
         """Destroy a session."""

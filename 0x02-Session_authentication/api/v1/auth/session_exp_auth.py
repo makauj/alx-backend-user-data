@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """Session expiration handler."""
 import time
 import logging

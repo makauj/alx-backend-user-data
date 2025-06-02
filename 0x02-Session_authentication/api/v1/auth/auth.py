@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """manage API authentication"""
 from flask import request
 from typing import List, TypeVar

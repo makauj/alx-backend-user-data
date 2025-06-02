@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """ Module of Users views
 """
 from api.v1.views import app_views

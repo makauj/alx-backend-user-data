@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """ Base module
 """
 from datetime import datetime

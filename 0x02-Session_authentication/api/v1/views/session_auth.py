@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """Session Authentication Middleware"""
 from flask import request, jsonify, abort
 from api.v1.views import app_views

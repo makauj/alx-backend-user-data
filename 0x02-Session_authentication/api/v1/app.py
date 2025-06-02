@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# type: ignore
 """
 Route module for the API
 This module initializes the Flask application, sets up CORS,
