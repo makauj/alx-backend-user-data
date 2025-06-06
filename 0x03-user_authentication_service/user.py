@@ -6,7 +6,7 @@ from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
-class User():
+class User(Base):
     """User class for SQLAlchemy ORM."""
     __tablename__ = 'users'
     
