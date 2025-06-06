@@ -7,8 +7,6 @@ from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.exc import InvalidRequestError
-from typing import TypeVar
-
 from user import Base, User
 
 
