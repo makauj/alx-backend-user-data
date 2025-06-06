@@ -15,7 +15,7 @@ def hello_world() -> str:
 
 
 @app.route('/users', methods=['POST'])
-def register_user() -> tuple:
+def register_user() -> str:
     """Registers a new user if it does not exist before"""
     try:
         email = request.form['email']
@@ -96,7 +96,7 @@ def profile() -> tuple:
 
 
 @app.route('/reset_password', methods=['POST'])
-def reset_password() -> tuple:
+def reset_password() -> str:
     """If the email is not registered, respond with a 403 status code.
     Otherwise, generate a token and respond with a
     200 HTTP status and JSON Payload
