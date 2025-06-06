@@ -43,7 +43,7 @@ class DB:
         return user
 
     def find_user_by(self, **kwargs) -> User:
-        """ 
+        """
         method takes in arbitrary keyword arguments and returns the first
         row found in the users table as filtered by the method’s
         input arguments.
